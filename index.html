@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Cowboy Runner</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>  
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Cowboy_Runner_WebGL.json", {onProgress: UnityProgress});
+
+	  //==== ADDED by Calvin in order to make it work ====
+      updateMessage();
+    
+    function updateMessage() {
+        timer = setTimeout(updateMessage, 100);
+        if(readCookie("Facebook") != "")
+        {
+            if(readCookie("Facebook") == "Success")
+            {
+                var name = "Facebook";
+                document.cookie = name + "=" + getRandomInt(100000, 1000000) + ";" + " path=/";
+                //gameInstance.SendMessage ('<FULL_PATH_GAMEOBJECT>', '<PUBLIC_FUNCTION>');
+				// NAME_OF_GAMEOBJECT : Just use the name of gameObject if it is root object
+				// ﻿if gameObject have any parent, use '/' divide just like a full path﻿ :
+				// ﻿<ROOT_GAMEOBJECT_NAME>/<PARENT_GAMEOBJECT_NAME>/<GAMEOBJECT_NAME>
+
+				gameInstance.SendMessage ("Canvas/GameStart Panel/Panel/FacebookConnect", 'FacebookConnect_Button');
+				gameInstance.SendMessage ("Canvas/FacebookConnect", 'FacebookConnect_Button');
+
+
+
+            }
+        }
+    }
+    
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+    
+    function readCookie(name) {
+        var name = "Facebook" + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length,c.length);
+            }
+        }
+        return "";
+    }
+    //==== END OF CODE BY CALVIN ====
+
+
+
+
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 1280px; height: 720px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">Cowboy Runner</div>
+      </div>
+    </div>
+  </body>
+</html>
