@@ -9,53 +9,53 @@
     <script src="TemplateData/UnityProgress.js"></script>  
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Cowboy_Runner_WebGL.json", {onProgress: UnityProgress});
+//       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Cowboy_Runner_WebGL.json", {onProgress: UnityProgress});
 
-	  //==== ADDED by Calvin in order to make it work ====
-      updateMessage();
+// 	  //==== ADDED by Calvin in order to make it work ====
+//       updateMessage();
     
-    function updateMessage() {
-        timer = setTimeout(updateMessage, 100);
-        if(readCookie("Facebook") != "")
-        {
-            if(readCookie("Facebook") == "Success")
-            {
-                var name = "Facebook";
-                document.cookie = name + "=" + getRandomInt(100000, 1000000) + ";" + " path=/";
-                //gameInstance.SendMessage ('<FULL_PATH_GAMEOBJECT>', '<PUBLIC_FUNCTION>');
-				// NAME_OF_GAMEOBJECT : Just use the name of gameObject if it is root object
-				// ﻿if gameObject have any parent, use '/' divide just like a full path﻿ :
-				// ﻿<ROOT_GAMEOBJECT_NAME>/<PARENT_GAMEOBJECT_NAME>/<GAMEOBJECT_NAME>
+//     function updateMessage() {
+//         timer = setTimeout(updateMessage, 100);
+//         if(readCookie("Facebook") != "")
+//         {
+//             if(readCookie("Facebook") == "Success")
+//             {
+//                 var name = "Facebook";
+//                 document.cookie = name + "=" + getRandomInt(100000, 1000000) + ";" + " path=/";
+//                 //gameInstance.SendMessage ('<FULL_PATH_GAMEOBJECT>', '<PUBLIC_FUNCTION>');
+// 				// NAME_OF_GAMEOBJECT : Just use the name of gameObject if it is root object
+// 				// ﻿if gameObject have any parent, use '/' divide just like a full path﻿ :
+// 				// ﻿<ROOT_GAMEOBJECT_NAME>/<PARENT_GAMEOBJECT_NAME>/<GAMEOBJECT_NAME>
 
-				gameInstance.SendMessage ("Canvas/GameStart Panel/Panel/FacebookConnect", 'FacebookConnect_Button');
-				gameInstance.SendMessage ("Canvas/FacebookConnect", 'FacebookConnect_Button');
+// 				gameInstance.SendMessage ("Canvas/GameStart Panel/Panel/FacebookConnect", 'FacebookConnect_Button');
+// 				gameInstance.SendMessage ("Canvas/FacebookConnect", 'FacebookConnect_Button');
 
 
 
-            }
-        }
-    }
+//             }
+//         }
+//     }
     
-    function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
+//     function getRandomInt(min, max) {
+//         min = Math.ceil(min);
+//         max = Math.floor(max);
+//         return Math.floor(Math.random() * (max - min)) + min;
+//     }
     
-    function readCookie(name) {
-        var name = "Facebook" + "=";
-        var ca = document.cookie.split(';');
-        for(var i = 0; i <ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0)==' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length,c.length);
-            }
-        }
-        return "";
-    }
+//     function readCookie(name) {
+//         var name = "Facebook" + "=";
+//         var ca = document.cookie.split(';');
+//         for(var i = 0; i <ca.length; i++) {
+//             var c = ca[i];
+//             while (c.charAt(0)==' ') {
+//                 c = c.substring(1);
+//             }
+//             if (c.indexOf(name) == 0) {
+//                 return c.substring(name.length,c.length);
+//             }
+//         }
+//         return "";
+//     }
     //==== END OF CODE BY CALVIN ====
 
 
